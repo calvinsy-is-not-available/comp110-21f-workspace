@@ -2,11 +2,11 @@
 
 __author__ = "730482431"
 
-x: str = input("Left-Hand_side: ")
-y: str = input("Right-Hand_side: ")
-x1: int = int(x)
-y1: int = int(y)
-print(x, "** " + y, " is", x1**y1)
-print(x, "/ " + y, " is", x1/y1)
-print(x, "// " + y, " is", x1//y1)
-print(x, "% " + y, " is", x1%y1)
+der_nummer_str: str = input("Left-Hand_side: ")
+der_nummer_str_zwei: str = input("Right-Hand_side: ")
+der_nummer_int: int = int(der_nummer_str)
+der_nummer_int_zwei: int = int(der_nummer_str_zwei)
+print(der_nummer_str, "** " + der_nummer_str_zwei, " is", der_nummer_int ** der_nummer_int_zwei)
+print(der_nummer_str, "/ " + der_nummer_str_zwei, " is", der_nummer_int / der_nummer_int_zwei)
+print(der_nummer_str, "// " + der_nummer_str_zwei, " is", der_nummer_int // der_nummer_int_zwei)
+print(der_nummer_str, "% " + der_nummer_str_zwei, " is", der_nummer_int % der_nummer_int_zwei)
