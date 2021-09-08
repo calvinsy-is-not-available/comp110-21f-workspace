@@ -11,10 +11,8 @@ __author__ = "730482431"
 # It will evaluate to an int value >= 1 and <= 100. 
 from random import randint
 print("Your fortune cookie says... ")
-key = int 
+key: int 
 key = randint(1, 4)
-wizzard_blizzard = int
-wizzard_blizzard = randint(10, 15)
 if key == 2: 
     print("Peace will guide your heart to a life where the sequence of your dreams will know no bounds to joy.")
 else:
@@ -24,5 +22,5 @@ else:
         print("Following a dream, New Years' light will bless you every morning.")
     if key == 4:
         print("You will change the world through your conviction of kindness and camaraderie.")
-print("Now, go forth and spread positive vibes!")
+print("Now, go spread positive vibes!")
  
