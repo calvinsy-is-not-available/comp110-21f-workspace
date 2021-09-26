@@ -1,9 +1,3 @@
-"""College Applications Simulator."""
-
-
-__author__ = "730482431"
-
-
 from random import randint
 points: int = 0
 NAMED_CONSTANT: str = '\U0001F601'
@@ -13,15 +7,14 @@ n: int = 1
 
 def main() -> None:
     """A main function."""
-    print(greet())
     global points
     global n
     points_multiplier: int = n * 5
     key: int = randint(1, 2)
+    print(greet())
     print('''
     ''')
     choice: str = input(f"Which path do you seek, {player}? College, McDonalds, Trade-School? ")
-    points = points + 1
     # College Path
     if choice == "College":
         print(college_path())
@@ -29,7 +22,7 @@ def main() -> None:
     elif choice == "McDonalds":
         print("How long do you want to work at McDonalds?")
         points = points + 5
-        print(McDonalds_path(points))
+        print(McDonalds_path(5))
     # Trade-School
     else:
         if choice == "Trade-School":
@@ -38,7 +31,7 @@ def main() -> None:
             print(f"You entered: {choice}")
             print('''
             ''')
-            print(f"You {player}, rock! You will either become a blue collar cynic, OR a fabulous billionaire! Goodluck!")
+            print(f"You {player} rock! You will either become a blue collar cynic, OR a fabulous billionaire! Goodluck!")
             print('''
             ''')
             if key == 1:
@@ -49,12 +42,12 @@ def main() -> None:
                 print('''
                 ''')
                 print("End Game")
-            else:
-                print("WHA WHA WHAAAAN. You are a struggling artesian in a world of pure immitations and blue-pilled zombies.")
-                print("The world probably needs more people like you, but thanks to societal-natural-selection you will persih a lowly Starbucks Manager.")
-                points = points - 1
-                print(f"Your adventure points are: {points}")
-                print("End Game")
+                if key == 2:
+                    print("WHA WHA WHAAAAN. You are a struggling artesian in a world of pure immitations and blue-pilled zombies.")
+                    print("The world probably needs more people like you, but thanks to societal-natural-selection you will persih a lowly Starbucks Manager.")
+                    points = points - 1
+                    print(f"Your adventure points are: {points}")
+                    print("End Game")
     question: str = input('''Do you want to keep playing? 
     Type:  y or n ''')
     while question == "y" or "n":
@@ -63,10 +56,10 @@ def main() -> None:
             return main()
         else:
             if question == "n":
-                print("Game Over. Thanks for playing.")
-                print("")
                 question = "q"
-    return None
+    print("Game Over. Thanks for playing.")
+    print("")
+    return
 
 
 welcome_message = f'''
@@ -82,7 +75,7 @@ welcome_message = f'''
 
 
 def message_welcome(x: str) -> str:
-    """Prints our Welcome message into greet."""
+    """Prints our Welcome message into greet"""
     return x
 
 
@@ -93,18 +86,18 @@ def greet() -> None:
     x = (message_welcome(welcome_message))
     print(x)
     print("")
-    player = input("What is your name?: ")
+    player = input("Enter your name: ")
+    print(player)
     print(f'''
     You entered: {player}''')
     print("")
     print("")
     print("Ignore None")
     print("")
-    return None
 
 
 def McDonalds_path(z: int) -> int:
-    """Mcdonalds Career Path."""
+    """McDonalds Career Path."""
     global player
     global points
     global n
@@ -132,7 +125,7 @@ def McDonalds_path(z: int) -> int:
     return points
     
 
-def body_decomp_from_career(x: int) -> str:
+def body_decomp_from_career(x) -> str:
     """BODY DECOMPISITION RATE, YAY!"""
     y: int = 0
     a: str = ("")
@@ -146,7 +139,7 @@ def body_decomp_from_career(x: int) -> str:
     return a
 
 
-def college_path() -> None:
+def college_path():
     """College Path for Game."""
     global points
     global n
@@ -201,7 +194,7 @@ def college_path() -> None:
         print('''
         ''')
     if key == 1:
-        i = 2
+        i: int = 2
         print("Narrative: You are stressed from course exams. Sometimes life is hard, we understand but College admissions may not always be empathetic.")
         print("You receive a debuff: -5% to CAC (College Admission Chance), but you also receive:")
         print('''
@@ -256,7 +249,7 @@ def college_path() -> None:
             UNI Toronto: {uni_toronto_cac}%''')
     else:
         if key == 2:
-            i = 2
+            i: int = 2
             print("Narrative: You are killing your exams.")
             points = points + 1
             print(f'''
@@ -283,7 +276,7 @@ def college_path() -> None:
             1 x Rushed Essays furvent with passion (you need only type 'Rushed Essay')''')
             print('''
             ''')
-            decision = input(f"What type of essay will you now craft, {player}: ")
+            decision: str = input(f"What type of essay will you now craft, {player}: ")
             print('''
             ''')
             print(f"You entered: {decision}")
@@ -359,12 +352,11 @@ def college_path() -> None:
     print('''
         ''')
     print(f"Your adventure points are: {points}")
-    print("Game Over")
-    return None
+    return "Game Over"
 
 
 def college_decisions(a: int, b: int, c: int, d: int, e: int, f: int, g: int) -> str:
-    """Calculates/Returns College Admission Decisions."""
+    """Calculates/Returns College Admission Decisions"""
     if a > 25:
         print("Congratulations, you have been granted admission into...")
         print('''
