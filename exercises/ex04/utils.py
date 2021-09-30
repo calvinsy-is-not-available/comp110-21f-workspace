@@ -23,11 +23,21 @@ def all(x: list[int], y: int) -> bool:
 
 def is_equal(x: list[int], y: list[int]) -> bool:
     """Determines if the indicies of two lists are equivalent."""
-    i: int = 0
     global b
+    if x == [] and y == []:
+        return True
+    if x == []:
+        return False
+    i: int = 0
     while i < len(x):
         if x[i] == y[i]:
             b = True
+        if x[i] == y[i]:
+            if len(y) != len(x):
+                return False
+        elif y == []:
+            b = False
+            return b
         else:
             b = False
             return b
