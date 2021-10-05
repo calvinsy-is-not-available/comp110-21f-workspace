@@ -5,7 +5,7 @@ __author__ = "123456789"
 # Define your functions below
 
 
-def all_evens(x: list[int]) -> list[int]:
+def only_evens(x: list[int]) -> list[int]:
     """Returns list (if applicable) of even ints."""
     i: int = 0
     xs: list[int] = []
@@ -34,4 +34,10 @@ def sub(x: list[int], y: int, z: int) -> list[int]:
     return xs
 
 
-print(all_evens([4, 4, 4]))
+def concat(x: list[int], y: list[int]) -> list[int]:
+    """"Ties to Strings Together."""
+    i: int = 0
+    while i < len(y):
+        x.append(y[i])
+        i += 1
+    return x
