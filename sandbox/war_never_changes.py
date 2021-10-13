@@ -14,7 +14,7 @@ def favorite_colors(x: dict[str, str]) -> list[str]:
 
     i = 0
     while i < len(listy_2):
-        if listy_2[i] in 
+        if listy_2[i] in
 
     
         
