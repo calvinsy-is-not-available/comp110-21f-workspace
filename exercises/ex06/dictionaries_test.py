@@ -3,14 +3,16 @@
 # TODO: Uncomment the below line when ready to write unit tests
 
 from exercises.ex06.dictionaries import invert, favorite_color, count
+import pytest
 
 __author__ = "730482431"
 
 
 def test_invert_of_two_equivalent_values() -> None:
     """Test for invert."""
-    my_dict: dict[str, str] = {"one": "purple", "two": "purple"}
-    assert invert(my_dict) == KeyError("key given is not unique.")
+    with pytest.raises(KeyError):
+        my_dictionary = {'kris': 'jordan', 'michael': 'jordan'}
+        invert(my_dictionary)
 
 
 def test_invert_of_a_short_string() -> None:
