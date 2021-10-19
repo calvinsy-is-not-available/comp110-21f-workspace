@@ -9,6 +9,7 @@ from lessons import helpers as hp
 # Import names directly from the globals of a module
 from lessons.helpers import THE_ANSWER, powerful
 
+
 def main() -> None:
     # acesses the first import
     print(helpers.powerful(2, 4))
