@@ -13,7 +13,7 @@ n: int = 1
 
 def main() -> None:
     """A main function."""
-    print(greet())
+    print(greet)
     global points
     global n
     points_multiplier: int = n * 5
