@@ -93,4 +93,14 @@ def count(notes: list[str]) -> dict[str, int]:
     return book
 
 
-def county(notes: list[str]) -> dict[str]
+def addem_up(x: dict[str, int]) -> int:
+    """Adds all the values from the count function."""
+    lst_nums: list[int] = []
+    for key in x:
+        lst_nums.append(x[key])
+    i: int = 0
+    total: int = 0
+    while i < len(lst_nums):
+        total += lst_nums[i]
+        i += 1
+    return total
