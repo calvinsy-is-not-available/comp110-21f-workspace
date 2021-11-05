@@ -104,3 +104,70 @@ def addem_up(x: dict[str, int]) -> int:
         total += lst_nums[i]
         i += 1
     return total
+
+
+def git_listy(column_reader: dict[str, list[str]], response: str) -> dict[str, list[str]]:
+    """Given a dictionary, this function returns all wanted key value pairs."""
+    mt_list: list[str] = []
+    mt_list_zwei: list[str] = []
+    mt_dict: dict[str, list[str]] = {}
+    column: list[str] = []
+    for key in column_reader:
+        column.append(key)
+    i: int = 0
+    for element in column_reader:
+        while i < len(column_reader[element]):
+            mt_list.append(column_reader[element][i])
+            i += 1
+    for element in mt_list:
+        if element == response:
+            mt_list_zwei.append(element)
+    for element in column:
+        mt_dict[element] = mt_list_zwei
+    return mt_dict
+
+
+def eq(x: dict[str, list[str]]) -> dict[str, list[str]]:
+    """Makes all the values of all keys equivalent in length."""
+    for key in x:
+        for other_key in x:
+            if len(x[key]) != len(x[other_key]):
+                x[other_key].pop(len(x[other_key]) - 1)
+    return x
+
+
+def ratings_filter(data_reader: dict[str, list[str]], n: int) -> dict[str, list[str]]:
+    """Reads through a column and filters out values less than or equal to n."""
+    mt_list: list[str] = []
+    mt_list_zwei: list[int] = []
+    mt_list_drei: list[str] = []
+    mt_dict: dict[str, list[str]] = {}
+    i: int = 0
+    for element in data_reader:
+        while i < len(data_reader[element]):
+            mt_list.append(data_reader[element][i])
+            i += 1
+    i = 0
+    while i < len(mt_list):
+        num: str = ""
+        mommy_sorry_mommy: int = 0
+        num = mt_list[i]
+        mommy_sorry_mommy = int(num)
+        mt_list_zwei.append(mommy_sorry_mommy)
+        i += 1
+    i = 0
+    while i < len(mt_list_zwei):
+        if mt_list_zwei[i] <= n:
+            mt_list_zwei.pop(i)
+        i += 1
+    i = 0
+    while i < len(mt_list_zwei):
+        mummy_sorry_mummy: str = ""
+        bonk_go_to_jail: int = 0
+        bonk_go_to_jail = mt_list_zwei[i]
+        mummy_sorry_mummy = str(bonk_go_to_jail)
+        mt_list_drei.append(mummy_sorry_mummy)
+        i += 1
+    for element in data_reader:
+        mt_dict[element] = mt_list_drei
+    return mt_dict
