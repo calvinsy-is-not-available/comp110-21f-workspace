@@ -81,6 +81,16 @@ def concat(dish: dict[str, list[str]], soap: dict[str, list[str]]) -> dict[str, 
     return book
 
 
+def concat_int(dish: dict[str, int], soap: dict[str, int]) -> dict[str, int]:
+    """Produces two dicts from one, typically from count."""
+    book: dict[str, int] = {}
+    for column in dish:
+        book[column] = dish[column]
+    for column in soap:
+        book[column] = soap[column]
+    return book
+
+
 def count(notes: list[str]) -> dict[str, int]:
     """Produces a dict with a count of its keys/values."""
     book: dict[str, int] = {}
@@ -128,11 +138,24 @@ def git_listy(column_reader: dict[str, list[str]], response: str) -> dict[str, l
 
 
 def eq(x: dict[str, list[str]]) -> dict[str, list[str]]:
-    """Makes all the values of all keys equivalent in length."""
+    """Makes all the values of all keys equivalent in length. Only works for two columns in a dict."""
+    mt_list = []
     for key in x:
-        for other_key in x:
-            if len(x[key]) != len(x[other_key]):
-                x[other_key].pop(len(x[other_key]) - 1)
+        mt_list.append(key)
+    if len(x[mt_list[0]]) < len(x[mt_list[1]]):
+        num: int = len(x[mt_list[1]]) - len(x[mt_list[0]])
+        i: int = 0
+        while i < num:
+            x[mt_list[1]].pop(len(x[mt_list[1]]) - 1)
+            i += 1
+    elif len(x[mt_list[0]]) > len(x[mt_list[1]]):
+        num: int = len(x[mt_list[0]]) - len(x[mt_list[1]])
+        i: int = 0
+        while i < num:
+            x[mt_list[0]].pop(len(x[mt_list[0]]) - 1)
+            i += 1
+    else: 
+        pass
     return x
 
 
@@ -147,27 +170,13 @@ def ratings_filter(data_reader: dict[str, list[str]], n: int) -> dict[str, list[
         while i < len(data_reader[element]):
             mt_list.append(data_reader[element][i])
             i += 1
+    for str_elem in mt_list:
+        mt_list_zwei.append(int(str_elem))
     i = 0
-    while i < len(mt_list):
-        num: str = ""
-        mommy_sorry_mommy: int = 0
-        num = mt_list[i]
-        mommy_sorry_mommy = int(num)
-        mt_list_zwei.append(mommy_sorry_mommy)
-        i += 1
-    i = 0
-    while i < len(mt_list_zwei):
-        if mt_list_zwei[i] <= n:
-            mt_list_zwei.pop(i)
-        i += 1
-    i = 0
-    while i < len(mt_list_zwei):
-        mummy_sorry_mummy: str = ""
-        bonk_go_to_jail: int = 0
-        bonk_go_to_jail = mt_list_zwei[i]
-        mummy_sorry_mummy = str(bonk_go_to_jail)
-        mt_list_drei.append(mummy_sorry_mummy)
-        i += 1
+    filtered = filter(lambda num: num > n, mt_list_zwei)
+    filtered_list = list(filtered)
+    for int_elm in filtered_list:
+        mt_list_drei.append(str(int_elm))
     for element in data_reader:
         mt_dict[element] = mt_list_drei
     return mt_dict
