@@ -20,6 +20,7 @@ class Point:
         return Point(self.x * factor, self.y * factor)
 
     def __add__(self, rhs: Point) -> Point:
+        """Overload for the add operator."""
         return Point(self.x + rhs.x, self.y + rhs.y)
 
     def __getitem__(self, index: int) -> float:
